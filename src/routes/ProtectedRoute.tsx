@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../auth/AuthProvider';
 
 interface Props {
@@ -7,10 +7,15 @@ interface Props {
 }
 
 const ProtectedRoute: React.FC<Props> = ({ children }) => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+  const location = useLocation();
+
+  if (loading) return null;
+
   if (!user) {
-    return <Navigate to="/auth/sign-in" replace />;
+    return <Navigate to="/auth/sign-in" state={{ from: location }} replace />;
   }
+
   return children;
 };
 
