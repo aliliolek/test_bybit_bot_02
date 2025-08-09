@@ -1,10 +1,11 @@
 import React from 'react';
+import { Box, Typography } from '@mui/material';
 
 const Orders: React.FC = () => {
   return (
-    <div>
-      <h1>Orders</h1>
-    </div>
+    <Box p={2}>
+      <Typography variant="h6">Orders</Typography>
+    </Box>
   );
 };
 

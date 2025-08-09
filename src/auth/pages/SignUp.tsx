@@ -77,56 +77,60 @@ const SignUp: React.FC = () => {
   };
 
   return (
-    <Box
-      component="form"
-      onSubmit={handleSubmit}
-      sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: 300 }}
-    >
-      {success && (
-        <Alert severity="success">Check your email to confirm your account.</Alert>
-      )}
-      {error && <Alert severity="error">{error}</Alert>}
-      <TextField
-        label="Email"
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-        fullWidth
-        error={!!emailError}
-        helperText={emailError}
-      />
-      <TextField
-        label="Password"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-        fullWidth
-        error={!!passwordError}
-        helperText={passwordError}
-      />
-      <TextField
-        label="Confirm Password"
-        type="password"
-        value={confirmPassword}
-        onChange={(e) => setConfirmPassword(e.target.value)}
-        required
-        fullWidth
-        error={!!confirmError}
-        helperText={confirmError}
-      />
-      <Button type="submit" variant="contained" disabled={loading}>
-        Sign Up
-      </Button>
-      <Button variant="outlined" onClick={handleGoogleSignUp} disabled={loading}>
-        Continue with Google
-      </Button>
-      <Stack direction="row" justifyContent="flex-end">
-        <Link component={RouterLink} to="/auth/sign-in" state={{ from: location.state?.from }}>
-          Sign In
-        </Link>
-      </Stack>
+
+    <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh" px={2}>
+      <Box
+        component="form"
+        onSubmit={handleSubmit}
+        sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: '100%', maxWidth: 400 }}
+      >
+        {success && (
+          <Alert severity="success">Check your email to confirm your account.</Alert>
+        )}
+        {error && <Alert severity="error">{error}</Alert>}
+        <TextField
+          label="Email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          fullWidth
+          error={!!emailError}
+          helperText={emailError}
+        />
+        <TextField
+          label="Password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          fullWidth
+          error={!!passwordError}
+          helperText={passwordError}
+        />
+        <TextField
+          label="Confirm Password"
+          type="password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          required
+          fullWidth
+          error={!!confirmError}
+          helperText={confirmError}
+        />
+        <Button type="submit" variant="contained" disabled={loading} fullWidth>
+          Sign Up
+        </Button>
+        <Button variant="outlined" onClick={handleGoogleSignUp} disabled={loading} fullWidth>
+          Continue with Google
+        </Button>
+        <Stack direction="row" justifyContent="flex-end">
+          <Link component={RouterLink} to="/auth/sign-in" state={{ from: location.state?.from }}>
+            Sign In
+          </Link>
+        </Stack>
+      </Box>
+
     </Box>
   );
 };

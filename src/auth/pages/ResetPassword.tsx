@@ -71,36 +71,40 @@ const ResetPassword: React.FC = () => {
   }
 
   return (
-    <Box
-      component="form"
-      onSubmit={handleSubmit}
-      sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: 300 }}
-    >
-      {success && <Alert severity="success">Password updated.</Alert>}
-      {error && <Alert severity="error">{error}</Alert>}
-      <TextField
-        label="New Password"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-        fullWidth
-        error={!!passwordError}
-        helperText={passwordError}
-      />
-      <TextField
-        label="Confirm Password"
-        type="password"
-        value={confirmPassword}
-        onChange={(e) => setConfirmPassword(e.target.value)}
-        required
-        fullWidth
-        error={!!confirmError}
-        helperText={confirmError}
-      />
-      <Button type="submit" variant="contained" disabled={loading}>
-        Set Password
-      </Button>
+
+    <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh" px={2}>
+      <Box
+        component="form"
+        onSubmit={handleSubmit}
+        sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: '100%', maxWidth: 400 }}
+      >
+        {success && <Alert severity="success">Password updated.</Alert>}
+        {error && <Alert severity="error">{error}</Alert>}
+        <TextField
+          label="New Password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          fullWidth
+          error={!!passwordError}
+          helperText={passwordError}
+        />
+        <TextField
+          label="Confirm Password"
+          type="password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          required
+          fullWidth
+          error={!!confirmError}
+          helperText={confirmError}
+        />
+        <Button type="submit" variant="contained" disabled={loading} fullWidth>
+          Set Password
+        </Button>
+      </Box>
+
     </Box>
   );
 };

@@ -23,27 +23,30 @@ const ForgotPassword: React.FC = () => {
   };
 
   return (
-    <Box
-      component="form"
-      onSubmit={handleSubmit}
-      sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: 300 }}
-    >
-      {success && <Alert severity="success">Password reset email sent.</Alert>}
-      {error && <Alert severity="error">{error}</Alert>}
-      <TextField
-        label="Email"
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-        fullWidth
-      />
-      <Button type="submit" variant="contained" disabled={loading}>
-        Send Reset Email
-      </Button>
-      <Link component={RouterLink} to="/auth/sign-in" textAlign="center">
-        Back to Sign In
-      </Link>
+
+    <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh" px={2}>
+      <Box
+        component="form"
+        onSubmit={handleSubmit}
+        sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: '100%', maxWidth: 400 }}
+      >
+        {success && <Alert severity="success">Password reset email sent.</Alert>}
+        {error && <Alert severity="error">{error}</Alert>}
+        <TextField
+          label="Email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          fullWidth
+        />
+        <Button type="submit" variant="contained" disabled={loading} fullWidth>
+          Send Reset Email
+        </Button>
+        <Link component={RouterLink} to="/auth/sign-in" textAlign="center">
+          Back to Sign In
+        </Link>
+      </Box>
     </Box>
   );
 };

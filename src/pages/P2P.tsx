@@ -1,10 +1,11 @@
 import React from 'react';
+import { Box, Typography } from '@mui/material';
 
 const P2P: React.FC = () => {
   return (
-    <div>
-      <h1>P2P</h1>
-    </div>
+    <Box p={2}>
+      <Typography variant="h6">P2P</Typography>
+    </Box>
   );
 };
 

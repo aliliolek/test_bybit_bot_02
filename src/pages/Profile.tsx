@@ -13,10 +13,17 @@ const Profile: React.FC = () => {
   };
 
   return (
-    <Box p={2} display="flex" flexDirection="column" gap={2}>
+    <Box
+      p={2}
+      display="flex"
+      flexDirection="column"
+      gap={2}
+      maxWidth={400}
+      mx="auto"
+    >
       <Typography variant="h6">Profile</Typography>
       <Typography>{user?.email}</Typography>
-      <Button variant="contained" onClick={handleSignOut}>
+      <Button variant="contained" onClick={handleSignOut} fullWidth>
         Sign Out
       </Button>
     </Box>
