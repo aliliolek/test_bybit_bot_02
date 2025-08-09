@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, Box, Button, TextField } from '@mui/material';
+import { Alert, Box, Button, Link, Stack, TextField } from '@mui/material';
 import { supabase } from '../../lib/supabaseClient';
 
 const SignUp: React.FC = () => {
@@ -49,9 +49,11 @@ const SignUp: React.FC = () => {
       <Button type="submit" variant="contained">
         Sign Up
       </Button>
+      <Stack direction="row" justifyContent="flex-end">
+        <Link href="/auth/sign-in">Sign In</Link>
+      </Stack>
     </Box>
   );
 };
 
 export default SignUp;
-

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Alert, Box, Button, Link, Stack, TextField } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../lib/supabaseClient';
 
 const SignIn: React.FC = () => {
@@ -7,6 +8,7 @@ const SignIn: React.FC = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,11 +19,15 @@ const SignIn: React.FC = () => {
       password,
     });
     if (error) setError(error.message);
+    else navigate('/');
     setLoading(false);
   };
 
   const handleGoogleSignIn = async () => {
-    const { error } = await supabase.auth.signInWithOAuth({ provider: 'google' });
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: { redirectTo: import.meta.env.VITE_SITE_URL },
+    });
     if (error) setError(error.message);
   };
 
@@ -63,4 +69,3 @@ const SignIn: React.FC = () => {
 };
 
 export default SignIn;
-

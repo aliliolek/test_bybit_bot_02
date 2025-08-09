@@ -12,7 +12,7 @@ const ForgotPassword: React.FC = () => {
     setError(null);
     setSuccess(false);
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/auth/reset-password`,
+      redirectTo: `${import.meta.env.VITE_SITE_URL}/auth/reset-password`,
     });
     if (error) setError(error.message);
     else setSuccess(true);
@@ -42,4 +42,3 @@ const ForgotPassword: React.FC = () => {
 };
 
 export default ForgotPassword;
-
