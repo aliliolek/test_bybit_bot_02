@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 
@@ -34,7 +34,7 @@ const Navigation: React.FC = () => {
 
 const AppShell: React.FC = () => {
   return (
-    <Router>
+    <>
       <Routes>
         <Route path="/" element={<Navigate to="/p2p" replace />} />
         <Route path="/p2p" element={<P2P />} />
@@ -43,7 +43,7 @@ const AppShell: React.FC = () => {
         <Route path="/profile" element={<Profile />} />
       </Routes>
       <Navigation />
-    </Router>
+    </>
   );
 };
 
