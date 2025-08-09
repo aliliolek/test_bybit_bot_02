@@ -23,6 +23,7 @@ const ForgotPassword: React.FC = () => {
   };
 
   return (
+
     <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh" px={2}>
       <Box
         component="form"

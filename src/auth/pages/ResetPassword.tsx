@@ -71,6 +71,7 @@ const ResetPassword: React.FC = () => {
   }
 
   return (
+
     <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh" px={2}>
       <Box
         component="form"
@@ -103,6 +104,7 @@ const ResetPassword: React.FC = () => {
           Set Password
         </Button>
       </Box>
+
     </Box>
   );
 };
